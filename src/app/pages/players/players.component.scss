@@ -26,16 +26,29 @@
     max-width: 1160px;
     margin: 0 auto;
 
+    @include tablet {
+        max-width: 80%;
+    }
+
     &__header {
         display: flex;
         justify-content: space-between;
         color: white;
+
+        @include tablet {
+            flex-direction: column;
+            align-items: center;
+        }
 
         &--select {
             font-family: "Poppins Black";
             font-size: 1.5rem;
             color: $white;
             padding: 2rem 0;
+
+            @include tablet {
+                font-size: 1rem;
+            }
         }
 
         &--direction {
@@ -86,15 +99,24 @@
 
         @include tablet {
             flex-direction: column;
+            justify-content: center;
         }
 
         &--left {
             max-width: 50%;
             height: 100%;
+
+            @include tablet {
+                max-width: 100%;
+            }
         }
 
         &--swiper {
             justify-content: flex-end;
+
+            @include tablet {
+                max-width: 100%;
+            }
         }
     }
 }
@@ -162,6 +184,7 @@
             @include tablet {
                 font-size: 3rem;
                 line-height: 4rem;
+                text-align: center;
             }
         }
 
@@ -186,6 +209,12 @@
 
         &--info {
             margin-top: 1.9rem;
+
+            @include tablet {
+                display: flex;
+                flex-direction: column;
+                max-width: 50%;
+            }
 
             .title {
                 display: flex;
@@ -216,6 +245,8 @@
         height: 50rem;
         margin-top: 2rem;
 
+        display: block;
+
         @include tablet {
             display: flex;
             justify-content: flex-end;
@@ -229,7 +260,7 @@
 
             @include tablet {
                 top: 0;
-                left: -40%;
+                left: 40%;
                 max-height: 20rem;
             }
         }
@@ -244,6 +275,11 @@
     z-index: 1;
     margin-top: 6rem;
     background-color: $yellow;
+
+    @include tablet {
+        width: 13rem;
+        height: 13rem;
+    }
 }
 
 .button-fight {
