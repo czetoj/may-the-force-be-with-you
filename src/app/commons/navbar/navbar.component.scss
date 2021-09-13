@@ -1,0 +1,43 @@
+@import "../../../styles";
+
+.navbar {
+    font-family: "Poppins Bold";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    padding: 1rem 0 1.3rem 0;
+    color: $white;
+    border-bottom: 1px solid $white;
+    background: transparent;
+    max-width: 1160px;
+    margin: 0 auto;
+
+    &__part {
+        display: flex;
+        align-items: center;
+
+        & img {
+            padding-right: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        &--logout {
+            cursor: pointer;
+
+            &:hover {
+                color: $grey;
+                transition: all 0.3s;
+            }
+
+            & img {
+                padding-left: 0.5rem;
+            }
+        }
+    }
+}

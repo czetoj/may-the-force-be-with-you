@@ -1,0 +1,137 @@
+@import "../../../styles.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero {
+    background-image: url("../../../assets/bg_1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+
+    @include mobile {
+        max-width: 90%;
+    }
+
+    &--title {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        &-a {
+            font-family: "Star Jedi";
+            font-size: 1.8rem;
+            color: $white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 1rem;
+        }
+        &-b {
+            font-family: "Distant Galaxy";
+            font-size: 4rem;
+            color: $white;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+
+            @include mobile {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+#signInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5.5rem;
+
+    @include mobile {
+        margin-top: 3rem;
+    }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    line-height: 2;
+
+    &__label {
+        font-family: "Poppins Bold";
+        font-size: 14px;
+        color: $white;
+        margin-bottom: 0.3rem;
+    }
+
+    &__input {
+        font-family: "Poppins Regular";
+        background-color: $white;
+        font-size: 16px;
+        width: 25rem;
+        padding: 0.7rem;
+        border-radius: 8px;
+        text-align: center;
+        border: 0;
+        outline: 0;
+
+        @include mobile {
+            max-width: 70%;
+        }
+    }
+}
+
+// .form__input[type="password"] {
+//     background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Asterisk.svg/32px-Asterisk.svg.png");
+//     background-repeat: repeat-x;
+//     z-index: 1;
+//     background-size: 12px;
+//     background-position: left center;
+//     color: $black;
+// }
+
+.form-button {
+    background-color: $yellow;
+    border: 0;
+    font-family: "Poppins Bold";
+    font-size: 16px;
+    color: $black;
+    padding: 0.7rem 6rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+
+    &:hover,
+    &:active {
+        cursor: pointer;
+        background-color: $grey;
+        transition: all 0.3s ease;
+    }
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+    font-size: 0.7rem;
+}

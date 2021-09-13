@@ -1,0 +1,13 @@
+@import "../../../styles.scss";
+
+.footer {
+    display: flex;
+    justify-content: right;
+    align-self: flex-end;
+    width: 100%;
+}
+
+.footer p {
+    color: $white;
+    text-align: center;
+}

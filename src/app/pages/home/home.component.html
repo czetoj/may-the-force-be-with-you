@@ -1,0 +1,54 @@
+<div class="container hero">
+
+    <div class="hero__content">
+
+        <div class="hero__content--title">
+            <div class="hero__content--title-a">
+                Webstar
+            </div>
+            <div class="hero__content--title-b">
+                Frontend
+            </div>
+        </div>
+
+        <form id="signInForm" #loginForm="ngForm" (ngSubmit)="onLogin()">
+
+            <div class="form-container">
+                <label for="name" class="form-container__label">
+                    Felhasználónév
+                </label>
+                <input type="text" name="name" id="name" class="form-container__input" placeholder="mail@example.com"
+                    [(ngModel)]="user.username" autofocus required>
+                <div class="error-message"
+                    [hidden]="loginForm.controls.name?.valid || loginForm.controls.name?.pristine">
+                    Kérjük adjon meg érvényes felhasználónevet!
+                </div>
+            </div>
+
+            <div class="form-container">
+                <label for="password" class="form-container__label">
+                    Jelszó
+                </label>
+                <input type="password" name="password" id="password" class="form-container__input"
+                    placeholder="*************" [(ngModel)]="user.password" required>
+                <div class="error-message"
+                    [hidden]="loginForm.controls.password?.valid || loginForm.controls.password?.pristine">
+                    Kérjük adjon meg érvényes jelszót!
+                </div>
+            </div>
+
+            <button type="submit" class="form-button" [disabled]="loginForm.invalid">
+                Belépés
+            </button>
+
+            <div class="error-message" [hidden]="!serverError">
+                {{ serverError }}
+            </div>
+
+        </form>
+
+    </div>
+
+    <app-footer></app-footer>
+
+</div>

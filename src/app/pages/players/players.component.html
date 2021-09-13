@@ -1,0 +1,105 @@
+<div class="container">
+
+    <app-navbar></app-navbar>
+
+    <div class="main">
+
+        <div class="main__header">
+            <div class="main__header--select">
+                Válassz két harcost az ellenkező oldalakból!
+            </div>
+            <div class="main__header--direction">
+                <span *ngFor="let point of charactersList; let i=index" [ngClass]="{'playerDot__Now': index == i}"
+                    class="playerDot">
+
+                </span>
+
+                <img class="left-arrow" src="../../../assets/arrow_circle.png" alt="" (click)="leftPagination()">
+
+
+                <img class="right-arrow" src="../../../assets/arrow_circle.png" alt="" (click)="rightPagination()">
+
+            </div>
+        </div>
+
+
+        <div class="main__players">
+
+            <div class="main__players--left">
+
+                <div class="player" *ngIf="char">
+                    <div class="player__content">
+                        <div class="player__content--feature">
+                            <div class="feature__darkSquare">
+                            </div>
+                            <div class="feature__right">
+                                <p class="feature__right--head">
+                                    oldal
+                                </p>
+                                <p class="feature__right--details">
+                                    {{ char.side === "LIGHT" ? "Világos" : "Sötét" }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="player__content--feature">
+                            <div class="feature__starSquare">
+                                <img src="../../../assets/star.png" alt="">
+                            </div>
+                            <div class="feature__right">
+                                <p class="feature__right--head">
+                                    különleges erő
+                                </p>
+                                <p class="feature__right--details">
+                                    {{ char.power }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="player__content--name" [innerHTML]="char.name">
+                        </div>
+                        <button type="button" class="player__content--button"
+                            [ngClass]="{'player__content--button-active': buttonActive}"
+                            (click)="selectCharacter(char)">
+                            Kiválasztom
+                        </button>
+                        <div class="player__content--info">
+                            <div class="title">
+                                <div class="feature__yellowSquare">
+                                </div>
+                                <span>
+                                    Leírás
+                                </span>
+                            </div>
+                            <div class="content">
+                                {{ char.description }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <swiper class="main__players--swiper" [slidesPerView]="1" [spaceBetween]="400" [keyboard]="{
+            enabled: true
+          }" [pagination]="{
+            clickable: true
+          }" [navigation]="true">
+
+                <ng-template swiperSlide>
+
+                    <div class="player__image">
+                        <div class="yellowCircle"></div>
+                        <img [src]="['../../../assets/' + char.id +'.png']" alt="">
+                    </div>
+
+                </ng-template>
+            </swiper>
+        </div>
+
+    </div>
+
+    <button class="button-fight" *ngIf="lightYes && darkYes" (click)="simulate()">
+        Küzdelem szimulálása
+    </button>
+
+    <app-footer></app-footer>
+
+</div>

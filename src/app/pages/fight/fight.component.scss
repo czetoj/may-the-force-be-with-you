@@ -1,0 +1,255 @@
+@import "../../../styles";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0 6rem;
+    background: url("./../../../assets/bg_3@2x.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+
+    @include tablet {
+        padding: 0 1rem;
+    }
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__title {
+        width: 100%;
+        font-family: "Star Jedi";
+        font-size: 60px;
+        color: $white;
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+
+    &__players {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 1rem;
+        max-height: 45rem;
+
+        @include tablet {
+            flex-direction: column;
+        }
+    }
+}
+
+.player {
+    &__feature {
+        height: 50%;
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+
+        &--left {
+            align-items: flex-start;
+        }
+
+        &--right {
+            align-items: flex-end;
+        }
+
+        &--winner {
+            .button--back {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 3rem;
+
+                .button--yellow {
+                    background-color: $yellow;
+                    border: 0;
+                    font-family: "Poppins Bold";
+                    font-size: 16px;
+                    color: $black;
+                    padding: 0.7rem 6rem;
+                    border-radius: 8px;
+                    margin-top: 1.5rem;
+
+                    &:hover,
+                    &:active {
+                        cursor: pointer;
+                        background-color: $dark-grey;
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+        }
+    }
+
+    &__side {
+        font-family: "Poppins Black";
+        font-size: 24px;
+        color: $white;
+
+        &--left {
+            padding-left: 5rem;
+        }
+
+        &--right {
+            padding-right: 5rem;
+        }
+    }
+
+    &__image {
+        display: flex;
+        flex-wrap: wrap;
+        height: 40%;
+
+        img {
+            max-height: 25rem;
+            z-index: 2;
+            position: relative;
+            top: -20.6rem;
+
+            @include tablet {
+                top: 0;
+                max-height: 20rem;
+            }
+        }
+
+        &--left {
+            justify-content: flex-start;
+        }
+
+        &--right {
+            justify-content: flex-end;
+        }
+    }
+
+    &__name {
+        font-family: "Star Jedi";
+        font-size: 40px;
+        color: $white;
+        margin-top: 16rem;
+        text-align: center;
+
+        @include tablet {
+            font-size: 2rem;
+            margin-top: 13rem;
+        }
+
+        &--right {
+            text-align: right;
+        }
+    }
+
+    &__unit {
+        text-align: center;
+
+        .bar {
+            width: 25rem;
+            height: 1.2rem;
+            background-color: $white;
+            border-radius: 3px;
+            margin: 1.2rem 0 1rem;
+            display: flex;
+
+            @include tablet {
+                width: 15rem;
+            }
+
+            &--left {
+                justify-content: flex-start;
+            }
+
+            &--right {
+                justify-content: flex-end;
+            }
+
+            &__value {
+                border-radius: 3px;
+                width: 100%;
+                height: 100%;
+
+                &--red {
+                    background-color: $red;
+                }
+
+                &--yellow {
+                    background-color: $yellow;
+                }
+            }
+
+            &__percent {
+                font-family: "Poppins Bold";
+                font-size: 24px;
+                color: $white;
+            }
+        }
+    }
+}
+
+.versus {
+    font-family: "Distant Galaxy";
+    font-size: 150px;
+    color: $white;
+    height: 60%;
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+        font-size: 5rem;
+    }
+}
+
+.circle {
+    border-radius: 50%;
+    width: 17rem;
+    height: 17rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 3.5rem;
+
+    &--gray {
+        background-color: $dark-grey;
+    }
+
+    &--white {
+        background-color: $white;
+    }
+}
+
+@keyframes darkCharOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes lightCharOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes versusOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes winnerIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

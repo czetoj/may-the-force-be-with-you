@@ -1,0 +1,93 @@
+<div class="container">
+
+    <app-navbar></app-navbar>
+
+    <div class="main">
+
+        <div class="main__title" *ngIf="!gameOver">
+            A tudás legyen veled!
+        </div>
+        <div class="main__title" *ngIf="gameOver">
+            A csata nyertese!
+        </div>
+
+        <div class="main__players">
+
+            <div #darkChar class="player__feature player__feature--left" *ngIf="darkCharacter">
+
+                <div class="player__side player__side--left">
+                    Sötét oldal
+                </div>
+
+                <div class="player__image player__image--left">
+                    <div class="circle circle--gray"></div>
+                    <img [src]="['../../../assets/' + darkCharacter.id +'.png']" alt="">
+                </div>
+
+                <div class="player__name" [innerHTML]="darkCharacter.name">
+                </div>
+
+                <div class="player__unit">
+                    <div class="bar bar--left">
+                        <div #darkBar class="bar__value bar__value--red">
+                        </div>
+                    </div>
+                    <span #darkPercent class="bar__percent">
+                        100%
+                    </span>
+                </div>
+
+            </div>
+
+            <div #versus class="versus">
+                VS
+            </div>
+
+            <div #winnerChar class="player__feature player__feature--winner">
+                <div class="player__image">
+                    <div class="circle circle--white"></div>
+                    <img [src]="['../../../assets/' + winner.id +'.png']" alt="">
+                </div>
+                <div class="player__name" [innerHTML]="winner.name">
+                </div>
+
+                <div class="button--back">
+                    <button class="button--yellow" (click)="playAgain()">
+                        Vissza a fedélzetre
+                    </button>
+                </div>
+            </div>
+
+            <div #lightChar class="player__feature player__feature--right" *ngIf="lightCharacter">
+
+                <div class="player__side player__side--right">
+                    Világos oldal
+                </div>
+
+                <div class="player__image player__image--right">
+                    <div class="circle circle--white"></div>
+                    <img [src]="['../../../assets/' + lightCharacter.id +'.png']" alt="">
+                </div>
+
+                <div class="player__name player__name--right" [innerHTML]="lightCharacter.name">
+                </div>
+
+                <div class="player__unit">
+                    <div class="bar bar--right">
+                        <div #lightBar class="bar__value bar__value--yellow">
+                        </div>
+                    </div>
+                    <span #lightPercent class="bar__percent">
+                        100%
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <app-footer></app-footer>
+
+</div>
